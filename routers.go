@@ -36,4 +36,10 @@ var routes = Routes{
     "/",
     Index,
   },
+  Route{
+    "ErrorShow",
+    "GET",
+    "/errorshow/{id}",
+    ErrorShow,
+  },
 }
