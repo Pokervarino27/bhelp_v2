@@ -17,7 +17,7 @@ import(
 //func getClientDB(ctx context.Context) (*mongo.Database, error){
 func getClientDB() (*mongo.Client){
 
-  client, err := mongo.NewClient(options.Client(topology sharder_cluster).ApplyURI("mongodb://test:test@imaginex-developer-shard-00-00-ue0if.mongodb.net:27017/authMechanism=SCRAM-SHA-1"))
+  client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://test:test@imaginex-developer-shard-00-00-ue0if.mongodb.net:27017/dbname?ssl=true&authmechanism=SCRAM-SHA-1&authSource=admin"))
   if err != nil {
     log.Fatal(err)
     return nil
