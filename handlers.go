@@ -17,7 +17,7 @@ import(
 //func getClientDB(ctx context.Context) (*mongo.Database, error){
 func getClientDB() (*mongo.Client){
 
-  client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://test:test@imaginex-developer-shard-00-00-ue0if.mongodb.net:27017"))
+  client, err := mongo.NewClient(options.Client(topology sharder_cluster).ApplyURI("mongodb://test:test@imaginex-developer-shard-00-00-ue0if.mongodb.net:27017/authMechanism=SCRAM-SHA-1"))
   if err != nil {
     log.Fatal(err)
     return nil
@@ -52,6 +52,8 @@ func ErrorShow(w http.ResponseWriter, r *http.Request){
   var result ErrorMsg
 
   errorID := params["id"]
+
+  fmt.Println(errorID)
 
   id, err := primitive.ObjectIDFromHex(errorID)
   if err != nil{
