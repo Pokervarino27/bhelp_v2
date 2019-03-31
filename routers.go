@@ -39,7 +39,19 @@ var routes = Routes{
   Route{
     "ErrorShow",
     "GET",
-    "/errorshow/{id}",
+    "/errorshow/{cpnid}",
     ErrorShow,
+  },
+  Route{
+    "ErrorAdd",
+    "POST",
+    "/erroradd",
+    ErrorAdd,
+  },
+  Route{
+    "ErrorUpdate",
+    "PUT",
+    "/errorupdate/{cpnid}",
+    ErrorUpdate,
   },
 }
